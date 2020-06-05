@@ -4,57 +4,60 @@ import java.util.*;
 
 public class Main{
     //variable to hold total when looping
-    public static double total = 0;
+   
 
     //function to loop through list and getTotal from each currency and add to total
-    public static void bankTotal(List<AbstractMoney> moneyList){
+    public static double bankTotal(List<AbstractMoney> moneyList){
+        double total = 0;
         for(AbstractMoney m : moneyList){
             total += m.getTotal();
         }
         System.out.println("The piggy bank holds $" + total);
+        return total;
     }
-
 
     //Stretch ---------------------------------------------------------
     //function to withdraw money from total
     public static void withdraw(List<AbstractMoney> moneyList, double transaction){
+        //sort by amount and then sort by value
+        moneyList.sort(Comparator.comparing(o -> o.getAmount(), Comparator.reverseOrder()));
         moneyList.sort(Comparator.comparing(o -> o.getValue(), Comparator.reverseOrder()));
-        double originalAmountToWithdraw = transaction;
-        double amountLeftToWithdraw = transaction; 
-        double temp; 
-        int amt = 1; 
-        if(transaction > total){
+        int amtToSub; 
+        int newVal;
+        double multipliedTrans = transaction * 100; 
+        //if transaction > amount in vault exit with print statement
+        if(transaction > bankTotal(moneyList)){
             System.out.println("Insufficient Funds");
         }
         for(AbstractMoney m : moneyList){
-            //dollar
-                if(m.getName() == "dollar" && m.getTotal() < transaction){
-                   // m.subtract(amt);
+            newVal = m.getValueTimes100(); 
+            amtToSub = (int)(multipliedTrans / newVal); 
+           
+            //if the division of the transaction and val is greater than 0 
+            if(amtToSub > 0){
+                if(m.getAmount() >= amtToSub){
+                    m.subtract(amtToSub);
+                    multipliedTrans = (int)multipliedTrans - ((int)amtToSub* newVal);
                 }
-            //quarters
-                if (m.getName() == "quarter" && m.getTotal() < transaction){
-                    //m.subtract(amt);
+                else{
+                    multipliedTrans = (int)multipliedTrans - ((int)m.getAmount()* newVal);
+                    m.emptyCurrency();        
                 }
-             //dimes
-                if(m.getName() == "dime" && m.getTotal() < transaction){
-                    //m.subtract(amt);
-                }
-             //nickels
-                if(m.getName() == "nickel" && m.getTotal() < transaction){
-                    //m.subtract(amt);
-                }
-            //pennies
-                if(m.getName() == "penny" && m.getTotal() < transaction){
-                    //m.subtract(amt);
-                }                  
-            
+           
+                if(multipliedTrans == 0){
+                    break;
+                }            
+            }
+            else{
+                continue;
+            }          
         }
-        System.out.println(moneyList.toString());
-        System.out.println(total);
+        //filter out all 0 amounts here
+        System.out.println(moneyList.toString());      
+        bankTotal(moneyList);
     }
 
     //Stretch ---------------------------------------------------------
-
 
     public static void main(String[] args){
         System.out.println("Piggy Bank");
@@ -85,7 +88,7 @@ public class Main{
 
         bankTotal(bankVault);
        
-        withdraw(bankVault, 1.50);
+        withdraw(bankVault, 3.83);
 
     }
 

@@ -1,5 +1,6 @@
 package piggybank;
 
+
 public class Dollar extends AbstractMoney{
     //constructor
     public Dollar(int amount){

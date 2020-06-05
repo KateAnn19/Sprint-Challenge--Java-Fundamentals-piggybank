@@ -1,5 +1,6 @@
 package piggybank;
 
+
 abstract class AbstractMoney{
     protected int amount; //this is int because amount is a whole number 
     protected String name;
@@ -29,6 +30,15 @@ abstract class AbstractMoney{
         return amount * value; 
     }
 
+    protected void subtract(int x){
+        this.amount = amount - x; 
+    }
+    protected void emptyCurrency(){
+        this.amount = 0;
+    }
+    protected int getValueTimes100(){
+        return (int) (this.value * 100);
+    }
     abstract String setPlural();
 
 }
