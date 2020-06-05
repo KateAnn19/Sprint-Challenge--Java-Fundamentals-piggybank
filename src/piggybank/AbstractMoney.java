@@ -1,6 +1,6 @@
 package piggybank;
 
-abstract class AbstractMoney {
+abstract class AbstractMoney{
     protected int amount; //this is int because amount is a whole number 
     protected String name;
     protected double value; //this is double because the value of currency is using decimals
