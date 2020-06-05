@@ -3,6 +3,15 @@ package piggybank;
 import java.util.*; 
 
 public class Main{
+    //variable to hold total when looping
+    public static double total = 0;
+    //function to loop through list and getTotal from each currency and add to total
+    public static void bankTotal(List<AbstractMoney> moneyList){
+        for(AbstractMoney m : moneyList){
+            total += m.getTotal();
+        }
+        System.out.println("The piggy bank holds $" + total);
+    }
     public static void main(String[] args){
         System.out.println("Piggy Bank");
 
@@ -18,11 +27,20 @@ public class Main{
         System.out.println(d_2.getTotal());
         System.out.println(p_2.getAmount());
 
+        List<AbstractMoney> bankVault = new ArrayList<>();
+        bankVault.add(q_1);
+        bankVault.add(dd_1);
+        bankVault.add(d_2);
+        bankVault.add(n_2);
+        bankVault.add(dd_2);
+        bankVault.add(d_1);
+        bankVault.add(p_2);
 
+        System.out.println("List of All");
+        System.out.println(bankVault.toString());
 
-
-
-
+        bankTotal(bankVault);
+       
 
 
     }
