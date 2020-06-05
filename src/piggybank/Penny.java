@@ -15,11 +15,11 @@ public class Penny extends AbstractMoney{
 
     @Override
     protected String setPlural(){
-        return this.name = " pennies ";
+        return this.name = "pennies";
     }
     @Override
     public String toString(){
-        return "Name: " + (this.amount == 1 ? name : setPlural()) + " Amount: " + getAmount() +  " Face Value: " + "$" + getValue() + " total: " + getTotal();
+        return getAmount() + " " + (this.amount == 1 ? name : setPlural());
     }
     
 }
