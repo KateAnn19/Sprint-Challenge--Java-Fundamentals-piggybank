@@ -70,9 +70,9 @@ public class Main{
         Dollar d_1 = new Dollar();
         Penny p_2 = new Penny(10);
         
-        System.out.println(q_1.getTotal());
-        System.out.println(d_2.getTotal());
-        System.out.println(p_2.getAmount());
+       // System.out.println(q_1.getTotal());
+       // System.out.println(d_2.getTotal());
+       // System.out.println(p_2.getAmount());
 
         List<AbstractMoney> bankVault = new ArrayList<>();
         bankVault.add(q_1);
@@ -86,9 +86,10 @@ public class Main{
         System.out.println("List of All");
         System.out.println(bankVault.toString());
 
+        System.out.println("****************************************");
         bankTotal(bankVault);
        
-        withdraw(bankVault, 3.83);
+       // withdraw(bankVault, 3.83);
 
     }
 
