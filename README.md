@@ -25,9 +25,48 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Describe why Java is called an object oriented, strongly typed language.
+
+-Java is a strongly typed programming language because every variable must be declared with a data type. A variable cannot start off life without knowing the range of values it can hold, and once it is declared, the data type of the variable cannot change.
+
+-Java is purely object oriented programming language because without class and object it is impossible to write any Java program. Java is not pure object oriented programming language. because java supports non-primitive datatypes like int ,float ,boolean,double,long etc.
+
 2. Give examples of Java Collections explaining the use and differences between them.
+https://www.journaldev.com/1260/collections-in-java-tutorial
+
+Collections are like containers that group multiple items in a single unit. For example, a jar of chocolates, list of names, etc.
+
+Collections are used in every programming language and when Java arrived, it also came with few Collection classes – Vector, Stack, Hashtable, Array.
+
+Most common implementations are ArrayList, HashMap and HashSet. 
+
+//HashSet 
+Java HashSet is the basic implementation the Set interface that is backed by a HashMap. It makes no guarantees for iteration order of the set and permits the null element.
+
+//ArrayList 
+Java ArrayList is the resizable-array implementation of the List interface. Implements all optional list operations, and permits all elements, including null. In addition to implementing the List interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to Vector, except that it is unsynchronized.)
+
+The size, isEmpty, get, set, iterator, and list iterator operations run in constant time. The add operation runs in amortized constant time, that is, adding n elements requires O(n) time. All of the other operations run in linear time (roughly speaking). The constant factor is low compared to that for the LinkedList implementation.
+
+//HashMap 
+Hash table based implementation of the Map interface. This implementation provides all of the optional map operations and permits null values and the null key. HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits null. This class makes no guarantees for the order of the map.
+
 3. What is recursion and how does it differ from regular looping?
+It's a function that calls itsself. It has an exit condition so that we don't enter an infinite loop.
+
+
 4. Explain the differences between Abstract Classes and Interfaces including scenarios of when to use them.
+
+Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. A Java abstract class can have instance methods that implements a default behavior. Variables declared in a Java interface is by default final. An abstract class may contain non-final variables.
+
+A Java class can implement multiple interfaces but it can extend only one abstract class.
+
+https://javapapers.com/core-java/abstract-and-interface-core-java-2/difference-between-a-java-interface-and-a-java-abstract-class/#:~:text=Main%20difference%20is%20methods%20of,may%20contain%20non%2Dfinal%20variables.
+
+-Abstract classes should be used primarily for objects that are closely related, whereas interfaces are best suited for providing a common functionality to unrelated classes. Interfaces are a good choice when we think that the API will not change for a while.
+
+If we are designing small, concise bits of functionality, use interfaces. If we are designing large functional units, use an abstract class.
+
+https://www.tutorialspoint.com/when-to-use-an-abstract-class-and-when-to-use-an-interface-in-java#:~:text=Abstract%20classes%20should%20be%20used,not%20change%20for%20a%20while.
 
 ## Instructions
 
